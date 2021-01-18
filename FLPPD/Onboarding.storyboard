@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4m3-Ni-oa4">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Onboarding View Controller-->
+        <scene sceneID="o2p-pU-xj8">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="4m3-Ni-oa4" customClass="OnboardingViewController" customModule="FLPPD" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kVk-U0-7rN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMm-nr-d4g">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="577"/>
+                                <connections>
+                                    <outlet property="delegate" destination="4m3-Ni-oa4" id="3KJ-ZL-fJB"/>
+                                </connections>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r3g-y3-pFj">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.72156862745098038" green="0.69019607843137254" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="54K-rv-wWU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <state key="normal" title="SKIP"/>
+                                <connections>
+                                    <action selector="skipAction:" destination="4m3-Ni-oa4" eventType="touchUpInside" id="efR-Ph-imu"/>
+                                </connections>
+                            </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" defersCurrentPageDisplay="YES" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="TWT-GV-HFc">
+                                <rect key="frame" x="160" y="579" width="55" height="37"/>
+                                <color key="pageIndicatorTintColor" white="0.0" alpha="0.30463248239436619" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="pageAction:" destination="4m3-Ni-oa4" eventType="valueChanged" id="4gB-59-hqy"/>
+                                </connections>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="r3g-y3-pFj" firstAttribute="top" secondItem="TWT-GV-HFc" secondAttribute="bottom" constant="1" id="8IN-xq-cSR"/>
+                            <constraint firstItem="TWT-GV-HFc" firstAttribute="top" secondItem="wMm-nr-d4g" secondAttribute="bottom" constant="2" id="9X3-Sm-Iy9"/>
+                            <constraint firstItem="TWT-GV-HFc" firstAttribute="centerX" secondItem="kVk-U0-7rN" secondAttribute="centerX" id="KHy-cD-1bF"/>
+                            <constraint firstItem="wMm-nr-d4g" firstAttribute="leading" secondItem="SNm-Td-jaU" secondAttribute="leading" id="SQa-Ov-ea9"/>
+                            <constraint firstItem="r3g-y3-pFj" firstAttribute="bottom" secondItem="SNm-Td-jaU" secondAttribute="bottom" id="hSW-QM-nM4"/>
+                            <constraint firstItem="r3g-y3-pFj" firstAttribute="leading" secondItem="SNm-Td-jaU" secondAttribute="leading" id="kbL-0V-M0C"/>
+                            <constraint firstItem="wMm-nr-d4g" firstAttribute="trailing" secondItem="SNm-Td-jaU" secondAttribute="trailing" id="r8U-ct-gHg"/>
+                            <constraint firstItem="r3g-y3-pFj" firstAttribute="trailing" secondItem="SNm-Td-jaU" secondAttribute="trailing" id="sde-L2-113"/>
+                            <constraint firstItem="wMm-nr-d4g" firstAttribute="top" secondItem="kVk-U0-7rN" secondAttribute="top" id="uUc-Zh-wog"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SNm-Td-jaU"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <connections>
+                        <outlet property="pageControl" destination="TWT-GV-HFc" id="uAe-Mv-vUa"/>
+                        <outlet property="scrollView" destination="wMm-nr-d4g" id="dYx-fl-lPm"/>
+                        <outlet property="skipButton" destination="r3g-y3-pFj" id="wJT-Pf-J27"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Ua-hU-JZ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="104.8" y="133.5832083958021"/>
+        </scene>
+        <!--Onboarding Page View Controller-->
+        <scene sceneID="QIT-o0-C1f">
+            <objects>
+                <viewController storyboardIdentifier="page" id="M3D-sq-pz9" customClass="OnboardingPageViewController" customModule="FLPPD" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eLH-2b-dRw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="on_boarding1" translatesAutoresizingMaskIntoConstraints="NO" id="seH-cA-IWS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="396"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jMj-2V-Gs0">
+                                <rect key="frame" x="38" y="527" width="299" height="120"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="Dfi-Zu-Uq0"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" red="0.65490196078431373" green="0.63529411764705879" blue="0.66274509803921566" alpha="0.81970730633802813" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for property for investment" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGB-xp-IxS">
+                                <rect key="frame" x="38" y="461.5" width="299" height="57.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="seH-cA-IWS" firstAttribute="top" secondItem="eLH-2b-dRw" secondAttribute="top" id="1tL-rX-2bn"/>
+                            <constraint firstItem="jMj-2V-Gs0" firstAttribute="top" secondItem="HGB-xp-IxS" secondAttribute="bottom" constant="8" id="6zh-T2-mBX"/>
+                            <constraint firstItem="4G1-H7-yEM" firstAttribute="trailing" secondItem="HGB-xp-IxS" secondAttribute="trailing" constant="38" id="96u-3A-g6l"/>
+                            <constraint firstAttribute="trailing" secondItem="seH-cA-IWS" secondAttribute="trailing" id="FBj-VZ-cjs"/>
+                            <constraint firstItem="HGB-xp-IxS" firstAttribute="leading" secondItem="4G1-H7-yEM" secondAttribute="leading" constant="38" id="aOD-bZ-E1s"/>
+                            <constraint firstItem="4G1-H7-yEM" firstAttribute="bottom" secondItem="jMj-2V-Gs0" secondAttribute="bottom" constant="20" id="aRU-aA-J61"/>
+                            <constraint firstItem="seH-cA-IWS" firstAttribute="leading" secondItem="4G1-H7-yEM" secondAttribute="leading" id="c4y-X7-aFD"/>
+                            <constraint firstItem="jMj-2V-Gs0" firstAttribute="leading" secondItem="4G1-H7-yEM" secondAttribute="leading" constant="38" id="ocS-XG-STc"/>
+                            <constraint firstItem="4G1-H7-yEM" firstAttribute="trailing" secondItem="jMj-2V-Gs0" secondAttribute="trailing" constant="38" id="zeo-Hm-amF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4G1-H7-yEM"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="seH-cA-IWS" id="FXP-9W-KHB"/>
+                        <outlet property="text" destination="jMj-2V-Gs0" id="ucv-KW-dk5"/>
+                        <outlet property="titleLabel" destination="HGB-xp-IxS" id="VUc-yp-Peq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d17-Am-sg4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="754" y="134"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="on_boarding1" width="375" height="396"/>
+    </resources>
+</document>

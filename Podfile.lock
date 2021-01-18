@@ -1,0 +1,166 @@
+PODS:
+  - Alamofire (4.6.0)
+  - AlamofireImage (3.3.0):
+    - Alamofire (~> 4.5)
+  - Bolts (1.9.0):
+    - Bolts/AppLinks (= 1.9.0)
+    - Bolts/Tasks (= 1.9.0)
+  - Bolts/AppLinks (1.9.0):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.9.0)
+  - CryptoSwift (0.8.1)
+  - Differentiator (3.0.2)
+  - EasyMapping (0.21.2):
+    - EasyMapping/Core (= 0.21.2)
+  - EasyMapping/Core (0.21.2)
+  - FBSDKCoreKit (4.29.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.29.0):
+    - FBSDKCoreKit
+  - Filestack (1.3):
+    - Alamofire (~> 4.6)
+    - FilestackSDK (~> 1.2.2)
+    - SSZipArchive (~> 2.1)
+  - FilestackSDK (1.2.2):
+    - Alamofire (~> 4.6)
+    - CryptoSwift (~> 0.8.0)
+  - Firebase/Auth (4.8.1):
+    - Firebase/Core
+    - FirebaseAuth (= 4.4.2)
+  - Firebase/Core (4.8.1):
+    - FirebaseAnalytics (= 4.0.7)
+    - FirebaseCore (= 4.0.14)
+  - Firebase/Database (4.8.1):
+    - Firebase/Core
+    - FirebaseDatabase (= 4.1.4)
+  - Firebase/Messaging (4.8.1):
+    - Firebase/Core
+    - FirebaseMessaging (= 2.0.8)
+  - Firebase/Storage (4.8.1):
+    - Firebase/Core
+    - FirebaseStorage (= 2.1.2)
+  - FirebaseAnalytics (4.0.7):
+    - FirebaseCore (~> 4.0)
+    - FirebaseInstanceID (~> 2.0)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - nanopb (~> 0.3)
+  - FirebaseAuth (4.4.2):
+    - FirebaseAnalytics (~> 4.0)
+    - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - FirebaseCore (4.0.14):
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseDatabase (4.1.4):
+    - FirebaseAnalytics (~> 4.0)
+    - FirebaseCore (~> 4.0)
+    - leveldb-library (~> 1.18)
+  - FirebaseInstanceID (2.0.8):
+    - FirebaseCore (~> 4.0)
+  - FirebaseMessaging (2.0.8):
+    - FirebaseAnalytics (~> 4.0)
+    - FirebaseCore (~> 4.0)
+    - FirebaseInstanceID (~> 2.0)
+    - GoogleToolboxForMac/Logger (~> 2.1)
+    - Protobuf (~> 3.1)
+  - FirebaseStorage (2.1.2):
+    - FirebaseAnalytics (~> 4.0)
+    - FirebaseCore (~> 4.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GoogleToolboxForMac/DebugUtils (2.1.3):
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+  - GoogleToolboxForMac/Defines (2.1.3)
+  - GoogleToolboxForMac/Logger (2.1.3):
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+  - GoogleToolboxForMac/NSData+zlib (2.1.3):
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+  - GoogleToolboxForMac/NSDictionary+URLArguments (2.1.3):
+    - GoogleToolboxForMac/DebugUtils (= 2.1.3)
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.3)
+  - GoogleToolboxForMac/NSString+URLArguments (2.1.3)
+  - GTMSessionFetcher/Core (1.1.12)
+  - KRActivityIndicatorView (2.1.1)
+  - KRProgressHUD (3.1.2):
+    - KRActivityIndicatorView (= 2.1.1)
+  - leveldb-library (1.20)
+  - nanopb (0.3.8):
+    - nanopb/decode (= 0.3.8)
+    - nanopb/encode (= 0.3.8)
+  - nanopb/decode (0.3.8)
+  - nanopb/encode (0.3.8)
+  - Protobuf (3.5.0)
+  - PubNub (4.7.5):
+    - PubNub/Core (= 4.7.5)
+  - PubNub/Core (4.7.5)
+  - RxBlocking (4.0.0):
+    - RxSwift (~> 4.0)
+  - RxCocoa (4.0.0):
+    - RxSwift (~> 4.0)
+  - RxDataSources (3.0.2):
+    - Differentiator (~> 3.0)
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxSwift (4.0.0)
+  - RxTest (4.0.0):
+    - RxSwift (~> 4.0)
+  - SSZipArchive (2.1.1)
+  - SwiftyStoreKit (0.11.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.6)
+  - AlamofireImage (~> 3.1)
+  - EasyMapping (~> 0.21.2)
+  - FBSDKLoginKit
+  - Filestack (~> 1.2)
+  - Firebase/Auth
+  - Firebase/Core
+  - Firebase/Database
+  - Firebase/Messaging
+  - Firebase/Storage
+  - KRProgressHUD
+  - PubNub (~> 4)
+  - RxBlocking (~> 4.0.0)
+  - RxCocoa (~> 4.0)
+  - RxDataSources (~> 3.0.2)
+  - RxSwift (~> 4.0)
+  - RxTest (~> 4.0.0)
+  - SwiftyStoreKit
+
+SPEC CHECKSUMS:
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  AlamofireImage: 2e784dc5d00f04903a52c1d169181469c805c3df
+  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  CryptoSwift: 4b07d5b508c1eb67bfa314a727b705f8048a85de
+  Differentiator: a87be69eba49ec4ab460c7671143ee3a9eececfd
+  EasyMapping: 93c1f054da1bc5dff6aa332477b040bea7767841
+  FBSDKCoreKit: 6f139173dc63a1deaff4430a55f2fe5bb222d2af
+  FBSDKLoginKit: 56a057ca6822535ea0faa25f57a7c41edb697fd4
+  Filestack: 3ad7db07c77690f94aef85319c888647758cfeda
+  FilestackSDK: 49b57fe34f9f11e3ffd84589c1d2381620451a4e
+  Firebase: 2721056b8885eef90233b03f37be64358d35d262
+  FirebaseAnalytics: 617afa8c26b57a0c3f11361b248bc9e17bfd8dfd
+  FirebaseAuth: bd2738c5c1e92b108ba5f7f7335908097a4e50bb
+  FirebaseCore: 2e0b98fb2d64ca8140136beff15772bdd14d2dd7
+  FirebaseDatabase: de4446507ccd3257fca37d16f40e1540324571fd
+  FirebaseInstanceID: 81df5805a08001e69138664bdd02c6719a9ac80f
+  FirebaseMessaging: dfdcd307c2382290a1e297a81d0f18370f5b1bcd
+  FirebaseStorage: 181bb543d39ee3c53e0558de7ba86b1286a0427f
+  GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
+  GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
+  KRActivityIndicatorView: fa5df9f4cf039651ad8b0f9c11c3159d1e19299f
+  KRProgressHUD: 6e23870531f8e854c8cba430b0f5a61074865250
+  leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
+  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
+  PubNub: b4a22853f971e630a4ef828d8d2c5af63f208f6b
+  RxBlocking: 923c2c8106d80d7c2d6b276afd66ce3b10824836
+  RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
+  RxDataSources: cb7c31e652a87ebb919da45f716bbb87b3765f6b
+  RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
+  RxTest: 0041e792cede35e53e4749f378d21482af0e9d12
+  SSZipArchive: 14401ade5f8e82aba1ff03e9f88e9de60937ae60
+  SwiftyStoreKit: d52d1473f5baf8385c86d7455c9f6b0d0a74cef2
+
+PODFILE CHECKSUM: 1d713d5e73ff957951f3cf8649fc3a502dc4ec97
+
+COCOAPODS: 1.3.1

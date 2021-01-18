@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title Here :)</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        color:#000;
+        background:#333;
+        font-family:Arial, Helvetica, sans-serif;
+      }
+    article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+      display: block;
+    }
+    ol, ul {
+      list-style: none;
+    }
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+    p {
+      color: #233e52;
+      margin-bottom: 5%;
+    }
+    img {
+      border: none;
+      outline: none;
+      display: block;
+      max-width: 100%;
+      max-height:100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    a {
+      color: #58595b;
+      -moz-transition: .5s;
+      -webkit-transition: .5s;
+      transition: .5s;
+    }
+    a, a:visited {
+      text-decoration: none;
+      outline: none;
+    }
+    p a {
+      color: #000;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    .clearfix:before, .clearfix:after, .row:before, .row:after {
+      content: "";
+      display: table;
+      line-height: 0;
+    }
+    .clearfix:after, .row:after {
+      clear: both;
+    }
+    /*main_css starts*/
+    
+    page[size="A4"] {
+      position:relative;
+      background: white;
+      width:2550px;
+      height:3297px;
+      font-size:40px;
+      line-height:1.5;
+      display: block;
+      padding-left:77px;
+      padding-right:77px;
+      overflow:hidden;
+      
+    }
+    .footer {
+      position: absolute;
+      width:94%;
+      height:5%;
+      bottom:0;
+    }
+    .header {
+      position: absolute;
+      width:94%;
+      height:5%;
+      top:0;
+    }
+    
+    @media screen {
+      body, page[size="A4"] {
+        margin:0 auto;
+        margin-bottom:30px;
+      }
+      html{
+        transform: scale(0.4);
+        transform-origin: 0 0;
+      }
+    }
+    @media print {
+      body, page[size="A4"] {
+        margin: 0;
+        page-break-before:always;
+      }
+    }
+    #preparedby_box {
+      margin-top:1%;
+      margin-left:auto;
+      margin-right:auto;
+      table-layout:fixed;
+      width:30%;
+      background:white;
+    }
+    #preparedby_box img {
+      max-height: 405px;
+      width: auto;
+    }
+    #right_box{
+      max-height:405px;
+    }
+    #preparedby_box td + td {
+      border-left:4px solid gray;
+    }
+    #preparedby_box td {
+      padding-left:6%;
+      padding-right:6%;
+    }
+    
+    .wrapper {
+      max-height: 405px;
+      overflow:hidden;
+    }
+    .inn-container {
+      width:0pt;
+      margin:0 auto;
+    }
+    
+    .left-top {
+      float:left;
+    }
+    .rtt-top {
+      float: right;
+    }
+    .bottom-border {
+      border-bottom:4px solid #0e0e0e;
+      padding-bottom:1%;
+      margin-top:4.4%;
+    }
+    .top-border {
+      border-top:4px solid #0e0e0e;
+      padding-top:1%;
+    }
+    .color-blue {
+      color:#387ef5;
+    }
+    .title-head {
+      text-align:center;
+      margin:0 0 4%;
+    }
+    .title-head h1 {
+      margin:0;
+    }
+    .midd-cnt-section {
+      position:absolute;
+      top:10%;
+      height:auto;
+      width:94%;
+      padding: 0;
+    }
+    .first-page .midd-cnt-section {
+      padding:0pt 0 0;
+    }
+    .report {
+      font-weight:normal;
+    }
+    .cnt-tpp {
+      margin:4% 0 0;
+    }
+    .image-full {
+      max-width:100%;
+      max-height:1600px;
+      margin-top:5%;
+    }
+    .second_map{
+      width:100%;
+      max-height:1200px;
+      margin-top:5%;
+    }
+    .second_map img{
+      max-width:100%;
+      max-height:100%;
+    }
+    .image-full img {
+      width:auto;
+      max-height:100%;
+    }
+    .left-section {
+      width:48%;
+      float:left;
+    }
+    .left-section table {
+      width:100%;
+    }
+    .left-section table td {
+      padding:0pt;
+    }
+    .rtt-section {
+      width:48%;
+      float:right;
+    }
+    .rtt-section iframe {
+      width:100%;
+      height:0pt;
+    }
+    .col-single {
+      width:50%;
+      float:left;
+    }
+    .border-tpp {
+      border-top:solid 0.063em #387ef5;
+    }
+    .middle-table td {
+      padding:0px;
+    }
+    .col-inn {
+      margin:0 0 1%;
+    }
+    .col-single:first-child {
+      padding-right:0pt;
+    }
+    .col-single:last-child {
+      padding-left:200px;
+    }
+    .fourth-page .middle-table {
+      margin: 0 auto;
+      width: 80%;
+    }
+    .fifth-page .middle-table .col-inn {
+      margin: 0 0 0pt;
+    }
+    .photo-section {
+      text-align: center;
+    }
+    .single-img {
+      display:inline-block;
+      padding-top:1%;
+      padding-bottom:1%;
+      width: 49%;
+      height:800px;
+    }
+    .single-image img {
+      width:auto;
+      max-height:100%;
+    }
+    </style>
+</head>
+<body>
+<!--main-wrapper-->
+<!--first-page-->
+<page size="A4">
+  <div class="header">
+    <div class="title-tp bottom-border clearfix">
+      <div class="left-top">#LEFTTOP#</div>
+      #RIGHTTOP#
+    </div>
+  </div>
+  <div class="midd-cnt-section">
+    <div class="title-head">
+      <h1 class="color-blue">#NICKNAME#</h1>
+      <h2 class="report">Investment Property Report</h2>
+      <div class="cnt-tpp">#CITY#, #STATE#<br>
+        <span class="color-blue">$#PURCHASE PRICE# Purchase Price<br>
+          #ROI PERCENT# Return on Investment</span></div>
+      <div class="cnt-tpp">#PREPARED BY#<br>
+        <div class="wrapper"><table id="preparedby_box">
+          <tr>
+            #PREPARED BY BOX#
+          </tr>
+        </table>
+        </div>
+      </div>
+      <!--first-page--> #COVER PHOTO#
+    </div>
+  </div>
+  <div class="footer">
+    <div class="title-tp top-border clearfix">
+      #BRANDING#
+      <div class="rtt-top">Page #PAGE INDEX# of #PAGE COUNT#</div>
+    </div>
+  </div>
+</page>
+<!--//first-page-->
+<!--second-page-->
+<page size="A4">
+  <div class="header">
+    <div class="title-tp bottom-border clearfix">
+      <div class="left-top">#LEFTTOP#</div>
+      #RIGHTTOP#
+    </div>
+  </div>
+  <div class="midd-cnt-section">
+    <div class="title-head">
+      <h1 class="color-blue">Property Information</h1>
+    </div>
+    <div class="two-section clearfix">
+      <div class="left-section">
+        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+          <tbody><tr>
+            <td colspan="2" class="color-blue">ADDRESS</td>
+          </tr>
+          <tr>
+            <td colspan="2">#STREET#</td>
+          </tr>
+          <tr>
+            <td colspan="2">#CITY#, #STATE# #ZIP CODE#</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="color-blue">DETAILS</td>
+          </tr>
+          <tr>
+              <td>Property Type:</td>
+            <td>#PROPERTY TYPE#</td>
+          </tr>
+          <tr>
+            <td>Beds / Baths:</td>
+            <td>#BEDS# / #BATHS#</td>
+          </tr>
+          <tr>
+            <td>Square Footage:</td>
+            <td>#SQUARE FOOTAGE#</td>
+          </tr>
+          <tr>
+            <td>Year Built:</td>
+            <td>#YEAR BUILT#</td>
+          </tr>
+          <tr>
+            <td>Parking:</td>
+            <td>#PARKING#</td>
+          </tr>
+          <tr>
+            <td>Lot Size:</td>
+            <td>#LOT SIZE#</td>
+          </tr>
+          <tr>
+            <td>Zoning:</td>
+            <td>#ZONING#</td>
+          </tr>
+          <!--<tr>
+           <td colspan="2">MLS Number</td>
+           </tr>-->
+          </tbody></table>
+      </div>
+      <div class="rtt-section">#MAP1#</div>
+      #MAP2#
+    </div>
+  </div>
+  <div class="footer">
+    <div class="title-tp top-border clearfix">
+      #BRANDING#
+      <div class="rtt-top">Page #PAGE INDEX# of #PAGE COUNT#</div>
+    </div>
+  </div>
+</page>
+
+<!--//second-page-->
+    <!--third-page-->
+    <page size="A4">
+      <div class="header">
+        <div class="title-tp bottom-border clearfix">
+          <div class="left-top">#LEFTTOP#</div>
+          #RIGHTTOP#
+        </div>
+      </div>
+      <div class="midd-cnt-section">
+        <div class="title-head">
+          <h1 class="color-blue">Purchase &amp; Rehab</h1>
+        </div>
+        <div class="middle-table">
+          <div class="col-inn clearfix">
+            <div class="col-single">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td colspan="3" class="color-blue">PURCHASE</td>
+                </tr>
+                <tr>
+                  <td>Purchase Price:</td>
+                  <td></td>
+                  <td>$ #PURCHASE PRICE#</td>
+                </tr>
+                #FINANCED REHAB COSTS#
+                #AMOUNT FINANCED#
+                #DOWN PAYMENT#
+                #PURCHASE COSTS#
+                #REHAB COSTS#
+                #TOTAL CASH NEEDED#
+                #PRICE PER SQUARE FOOT#
+              </table>
+            </div>
+            <div class="col-single">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td colspan="2" class="color-blue">FINANCING</td>
+                </tr>
+                #FINANCING#
+              </table>
+            </div>
+          </div>
+          <div class="col-inn clearfix">
+            <div class="col-single">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td colspan="3" class="color-blue">PURCHASE COSTS</td>
+                </tr>
+                #PURCHASE COSTS DETAILS#
+              </table>
+            </div>
+            <div class="col-single">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td colspan="3" class="color-blue">HOLDING COSTS </td>
+                </tr>
+                #HOLDING COSTS DETAILS#
+              </table>
+            </div>
+          </div>
+          <div class="col-inn clearfix">
+            <div class="col-single">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td colspan="2" class="color-blue">REHAB COSTS</td>
+                </tr>
+                #REHAB COSTS DETAILS#
+              </table>
+            </div>
+            <div class="col-single">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td colspan="2" class="color-blue">ASSUMPTIONS</td>
+                </tr>
+                #HOLDING PERIOD#
+                #REHAB COST OVERRUN#
+                #REHAB COST FINANCING#
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="title-tp top-border clearfix">
+          #BRANDING#
+          <div class="rtt-top">Page #PAGE INDEX# of #PAGE COUNT#</div>
+        </div>
+      </div>
+    </page>
+    <!--//third-page--> 
+    <!--fourth-page-->
+    <page size="A4">
+    <div class="header">
+    <div class="title-tp bottom-border clearfix">
+    <div class="left-top">#LEFTTOP#</div>
+    #RIGHTTOP#
+    </div>
+    </div>
+      <div class="midd-cnt-section">
+        <div class="title-head">
+          <h1 class="color-blue">Sale &amp; Returns</h1>
+        </div>
+        <div class="middle-table">
+          <div class="col-inn clearfix">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td colspan="3" class="color-blue">SALE</td>
+              </tr>
+              #AFTER REPAIR VALUE#
+              #SELLING COSTS#
+              #SALE PROCEEDS#
+              #LOAN REPAYMENT#
+              #HOLDING COSTS#
+              #INVESTED CASH#
+              #TOTAL PROFIT#
+            </table>
+          </div>
+          <div class="col-inn clearfix">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td colspan="3" class="color-blue">RETURNS</td>
+              </tr>
+              #RETURN ON INVESTMENT#
+              #ANNUALIZED ROI#
+            </table>
+          </div>
+          <div class="col-inn clearfix">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td colspan="2" class="color-blue">SELLING COSTS</td>
+              </tr>
+              #SELLING COSTS DETAILS#
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="title-tp top-border clearfix">
+          #BRANDING#
+          <div class="rtt-top">Page #PAGE INDEX# of #PAGE COUNT#</div>
+        </div>
+      </div>
+    </page>
+    <!--//fourth-page--> 
+    <!--fifth-page-->
+    <page size="A4">
+    <div class="header">
+    <div class="title-tp bottom-border clearfix">
+    <div class="left-top">#LEFTTOP#</div>
+    #RIGHTTOP#
+    </div>
+    </div>
+      <div class="midd-cnt-section">
+        <div class="title-head">
+          <h1 class="color-blue">Profit Projections</h1>
+        </div>
+        <div class="middle-table">
+          <div class="col-inn clearfix">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="color-blue">
+                <td width="500" style="color:#000;">Holding Period:</td>
+                <td align="center" width="40"></td>
+                <td width="150">2 Weeks</td>
+                <td align="center" width="40"></td>
+                <td width="150">1 Month</td>
+                <td align="center" width="40"></td>
+                <td width="150"> 6 Weeks</td>
+                <td align="center" width="40"></td>
+                <td width="150"> 2 Months</td>
+                <td align="center" width="40"></td>
+                <td width="150"> 3 Months</td>
+                <td align="center" width="40"></td>
+                <td width="150"> 4 Months</td>
+                <td align="center" width="40"></td>
+                <td width="150"> 6 Months</td>
+              </tr>
+              <tr>
+                <td colspan="15" class="color-blue">HOLDING COSTS</td>
+              </tr>
+              #HOLDING COSTS PP DETAILS#
+            </table>
+          </div>
+          <div class="col-inn clearfix">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td colspan="15" class="color-blue">SALE &amp; PROFIT</td>
+              </tr>
+              #AFTER REPAIR VALUE PP#
+              #SELLING COSTS PP#
+              #SALE PROCEEDS PP#
+              #LOAN REPAYMENT PP#
+              #HOLDING COSTS PP#
+              #INVESTED CASH PP#
+              #TOTAL PROFIT PP#
+            </table>
+          </div>
+          <div class="col-inn clearfix">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td colspan="15" class="color-blue">RETURNS</td>
+              </tr>
+              #RETURN ON INVESTMENT PP#
+              #ANNUALIZED ROI PP#
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="title-tp top-border clearfix">
+          #BRANDING#
+          <div class="rtt-top">Page #PAGE INDEX# of #PAGE COUNT#</div>
+        </div>
+      </div>
+    </page>
+    <!--//fifth-page-->
+    <!--sixth-page-->
+    #ADDITIONAL PAGES#
+    <!--//sixth-page-->
+    
+                  </body></html>

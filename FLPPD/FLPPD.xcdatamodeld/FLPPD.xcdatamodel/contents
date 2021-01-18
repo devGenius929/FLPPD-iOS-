@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D47" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="1">
+    <entity name="AbstractModel" representedClassName="AbstractModel" isAbstract="YES" syncable="YES"/>
+    <entity name="AmortizingFinancing" representedClassName="AmortizingFinancing" syncable="YES" codeGenerationType="class">
+        <attribute name="loanTerm" attributeType="Decimal" minValueString="0" maxValueString="100" defaultValueString="30" syncable="YES"/>
+        <attribute name="useMortgageInsurance" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="mortgageInsurance" maxCount="1" deletionRule="Nullify" destinationEntity="MortgageInsurance" inverseName="amortizingFinancing" inverseEntity="MortgageInsurance" syncable="YES"/>
+        <relationship name="worksheet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Worksheet" inverseName="amortizingFinancing" inverseEntity="Worksheet" syncable="YES"/>
+    </entity>
+    <entity name="Channel" representedClassName="Channel" parentEntity="AbstractModel" syncable="YES" codeGenerationType="category">
+        <attribute name="id" attributeType="String" syncable="YES"/>
+        <attribute name="topic" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="recentMessage" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="InstantMessage" syncable="YES"/>
+        <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ChatUser" inverseName="channels" inverseEntity="ChatUser" syncable="YES"/>
+    </entity>
+    <entity name="ChatUser" representedClassName="ChatUser" parentEntity="AbstractModel" syncable="YES" codeGenerationType="category">
+        <attribute name="avatar" attributeType="String" syncable="YES"/>
+        <attribute name="avatar_image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="full_name" attributeType="String" syncable="YES"/>
+        <attribute name="presence" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="user_id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="channels" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Channel" inverseName="users" inverseEntity="Channel" syncable="YES"/>
+    </entity>
+    <entity name="Expenses" representedClassName="Expenses" parentEntity="ItemizeItem" syncable="YES" codeGenerationType="class">
+        <attribute name="itemizedTotal" attributeType="Decimal" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="total" attributeType="Decimal" minValueString="0" maxValueString="100" defaultValueString="50" syncable="YES"/>
+        <relationship name="itemizedExpenses" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="ItemizedExpensesField" inverseName="expenses" inverseEntity="ItemizedExpensesField" syncable="YES"/>
+        <relationship name="rentalWorksheet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RentalWorksheet" inverseName="expenses" inverseEntity="RentalWorksheet" syncable="YES"/>
+    </entity>
+    <entity name="Flip" representedClassName="FlipProperty" parentEntity="Property" syncable="YES" codeGenerationType="class"/>
+    <entity name="FlipWorksheet" representedClassName="FlipWorksheet" parentEntity="Worksheet" syncable="YES" codeGenerationType="class">
+        <attribute name="costOverrun" attributeType="Decimal" minValueString="0" maxValueString="100" defaultValueString="10" syncable="YES"/>
+        <attribute name="customLoanAsPercentOfARV" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="financeRehabCosts" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="holdingPeriod" attributeType="Decimal" minValueString="0" maxValueString="12" defaultValueString="3" syncable="YES"/>
+        <attribute name="percentageToFinance" attributeType="Decimal" minValueString="0" maxValueString="100" defaultValueString="100" syncable="YES"/>
+        <attribute name="percentOfARV" attributeType="Decimal" minValueString="0" maxValueString="100" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="holdingCosts" maxCount="1" deletionRule="Nullify" destinationEntity="HoldingCosts" inverseName="flipWorksheet" inverseEntity="HoldingCosts" syncable="YES"/>
+        <relationship name="sellingCosts" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SellingCosts" inverseName="flipWorksheet" inverseEntity="SellingCosts" syncable="YES"/>
+    </entity>
+    <entity name="GlossaryItem" representedClassName="GlossaryItem" syncable="YES" codeGenerationType="category">
+        <attribute name="filename" attributeType="String" syncable="YES"/>
+        <attribute name="folder" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="HoldingCosts" representedClassName="HoldingCosts" parentEntity="ItemizeItem" syncable="YES" codeGenerationType="class">
+        <attribute name="itemizedTotal" attributeType="Decimal" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="total" attributeType="Decimal" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <relationship name="flipWorksheet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FlipWorksheet" inverseName="holdingCosts" inverseEntity="FlipWorksheet" syncable="YES"/>
+        <relationship name="itemizedHoldingCosts" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="ItemizedHoldingCostsField" inverseName="holdingCosts" inverseEntity="ItemizedHoldingCostsField" syncable="YES"/>
+    </entity>
+    <entity name="Income" representedClassName="Income" parentEntity="ItemizeItem" syncable="YES" codeGenerationType="class">
+        <attribute name="itemizedTotal" attributeType="Decimal" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="total" attributeType="Decimal" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <relationship name="itemizedIncome" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="ItemizedIncomeField" inverseName="income" inverseEntity="ItemizedIncomeField" syncable="YES"/>
+        <relationship name="rentalWorksheet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RentalWorksheet" inverseName="income" inverseEntity="RentalWorksheet" syncable="YES"/>
+    </entity>
+    <entity name="InstantMessage" representedClassName="InstantMessage" parentEntity="AbstractModel" syncable="YES" codeGenerationType="category">
+        <attribute name="channel_id" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="image_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="message_id" attributeType="String" syncable="YES"/>
+        <attribute name="sender_id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="state" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="viewed" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="channel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Channel" syncable="YES"/>
+        <relationship name="sender" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChatUser" syncable="YES"/>
+    </entity>
+    <entity name="ItemizedExpensesField" representedClassName="ItemizedExpensesField" parentEntity="ItemizeField" syncable="YES" codeGenerationType="class">
+        <attribute name="characteristic1" attributeType="Integer 32" minValueString="0" maxValueString="1" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="characteristic2" attributeType="Integer 32" minValueString="0" maxValueString="1" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="characteristic3" optional="YES" attributeType="Integer 32" minValueString="0" maxValueString="1" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="characteristic4" attributeType="Integer 32" minValueString="0" maxValueString="1" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="expenses" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Expenses" inverseName="itemizedExpenses" inverseEntity="Expenses" syncable="YES"/>
+    </entity>
+    <entity name="ItemizedHoldingCostsField" representedClassName="ItemizedHoldingCostsField" parentEntity="ItemizeField" syncable="YES" codeGenerationType="class">
+        <attribute name="characteristic1" attributeType="Integer 32" minValueString="0" maxValueString="1" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="characteristic2" attributeType="Integer 32" minValueString="0" maxValueString="1" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="holdingCosts" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HoldingCosts" inverseName="itemizedHoldingCosts" inverseEntity="HoldingCosts" syncable="YES"/>
+    </entity>
+    <entity name="ItemizedIncomeField" representedClassName="ItemizedIncomeField" parentEntity="ItemizeField" syncable="YES" codeGenerationType="class">
+        <attribute name="characteristic1" attributeType="Integer 32" minValueString="0" maxValueString="1" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="income" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Income" inverseName="itemizedIncome" inverseEntity="Income" syncable="YES"/>
+    </entity>
+    <entity name="ItemizedPurchaseCostsField" representedClassName="ItemizedPurchaseCostsField" parentEntity="ItemizeField" syncable="YES" codeGenerationType="class">
+        <attribute name="characteristic1" attributeType="Integer 32" minValueString="0" maxValueString="1" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="characteristic2" attributeType="Integer 32" minValueString="0" maxValueString="1" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="characteristic3" attributeType="Integer 32" minValueString="0" maxValueString="1" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="purchaseCosts" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PurchaseCosts" inverseName="itemizedPurchaseCosts" inverseEntity="PurchaseCosts" syncable="YES"/>
+    </entity>
+    <entity name="ItemizedRehabCostsField" representedClassName="ItemizedRehabCostsField" parentEntity="ItemizeField" syncable="YES" codeGenerationType="class">
+        <relationship name="rehabCosts" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RehabCosts" inverseName="itemizedRehabCosts" inverseEntity="RehabCosts" syncable="YES"/>
+    </entity>
+    <entity name="ItemizedSellingCostsField" representedClassName="ItemizedSellingCostsField" parentEntity="ItemizeField" syncable="YES" codeGenerationType="class">
+        <attribute name="characteristic1" attributeType="Integer 32" minValueString="0" maxValueString="1" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="sellingCosts" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SellingCosts" inverseName="itemizedSellingCosts" inverseEntity="SellingCosts" syncable="YES"/>
+    </entity>
+    <entity name="ItemizeField" representedClassName="ItemizeField" syncable="YES" codeGenerationType="class">
+        <attribute name="isSetAmount" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="percentValue" attributeType="Decimal" minValueString="0" maxValueString="100" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="setAmount" attributeType="Decimal" minValueString="0" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="ItemizeItem" representedClassName="ItemizeItem" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="itemized" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="MortgageInsurance" representedClassName="MortgageInsurance" syncable="YES" codeGenerationType="class">
+        <attribute name="recurring" optional="YES" attributeType="Decimal" minValueString="0" maxValueString="100" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="upfront" optional="YES" attributeType="Decimal" minValueString="0" maxValueString="100" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="amortizingFinancing" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AmortizingFinancing" inverseName="mortgageInsurance" inverseEntity="AmortizingFinancing" syncable="YES"/>
+    </entity>
+    <entity name="Photo" representedClassName="Photo" syncable="YES" codeGenerationType="class">
+        <attribute name="imageData" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <relationship name="property" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Property" inverseName="photos" inverseEntity="Property" syncable="YES"/>
+    </entity>
+    <entity name="Property" representedClassName="Property" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="baths" optional="YES" attributeType="String" defaultValueString="0" syncable="YES"/>
+        <attribute name="beds" optional="YES" attributeType="String" defaultValueString="0" syncable="YES"/>
+        <attribute name="city" attributeType="String" syncable="YES"/>
+        <attribute name="lotSize" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nickname" attributeType="String" syncable="YES"/>
+        <attribute name="numberOfUnits" attributeType="Integer 32" minValueString="2" defaultValueString="2" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="parking" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="propertyDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="propertyType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="squareFootage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="state" attributeType="String" syncable="YES"/>
+        <attribute name="street" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnail" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="type" attributeType="Integer 16" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="yearBuilt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="zipcode" attributeType="String" syncable="YES"/>
+        <attribute name="zoning" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="photos" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Photo" inverseName="property" inverseEntity="Photo" syncable="YES"/>
+        <relationship name="worksheet" maxCount="1" deletionRule="Nullify" destinationEntity="Worksheet" inverseName="property" inverseEntity="Worksheet" syncable="YES"/>
+    </entity>
+    <entity name="PurchaseCosts" representedClassName="PurchaseCosts" parentEntity="ItemizeItem" syncable="YES" codeGenerationType="class">
+        <attribute name="itemizedTotal" attributeType="Decimal" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="total" attributeType="Decimal" minValueString="0" maxValueString="100" defaultValueString="3" syncable="YES"/>
+        <relationship name="itemizedPurchaseCosts" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="ItemizedPurchaseCostsField" inverseName="purchaseCosts" inverseEntity="ItemizedPurchaseCostsField" syncable="YES"/>
+        <relationship name="worksheet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Worksheet" inverseName="purchaseCosts" inverseEntity="Worksheet" syncable="YES"/>
+    </entity>
+    <entity name="RehabCosts" representedClassName="RehabCosts" parentEntity="ItemizeItem" syncable="YES" codeGenerationType="class">
+        <attribute name="itemizedTotal" attributeType="Decimal" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="total" attributeType="Decimal" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <relationship name="itemizedRehabCosts" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="ItemizedRehabCostsField" inverseName="rehabCosts" inverseEntity="ItemizedRehabCostsField" syncable="YES"/>
+        <relationship name="worksheet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Worksheet" inverseName="rehabCosts" inverseEntity="Worksheet" syncable="YES"/>
+    </entity>
+    <entity name="Rental" representedClassName="RentalProperty" parentEntity="Property" syncable="YES" codeGenerationType="class"/>
+    <entity name="RentalWorksheet" representedClassName="RentalWorksheet" parentEntity="Worksheet" syncable="YES" codeGenerationType="class">
+        <attribute name="appreciation" attributeType="Decimal" defaultValueString="3" syncable="YES"/>
+        <attribute name="expensesIncrease" attributeType="Decimal" minValueString="-1000" maxValueString="1000" defaultValueString="2" syncable="YES"/>
+        <attribute name="grossRent" attributeType="Decimal" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="incomeIncrease" attributeType="Decimal" minValueString="-1000" maxValueString="1000" defaultValueString="2" syncable="YES"/>
+        <attribute name="landValue" attributeType="Decimal" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="rentCollection" attributeType="Integer 32" minValueString="0" maxValueString="2" defaultValueString="2" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="sellingCosts" attributeType="Decimal" minValueString="-50" maxValueString="100" defaultValueString="6" syncable="YES"/>
+        <attribute name="vacancy" attributeType="Decimal" minValueString="0" maxValueString="100" defaultValueString="10" syncable="YES"/>
+        <relationship name="expenses" maxCount="1" deletionRule="Nullify" destinationEntity="Expenses" inverseName="rentalWorksheet" inverseEntity="Expenses" syncable="YES"/>
+        <relationship name="income" maxCount="1" deletionRule="Nullify" destinationEntity="Income" inverseName="rentalWorksheet" inverseEntity="Income" syncable="YES"/>
+    </entity>
+    <entity name="SellingCosts" representedClassName="SellingCosts" parentEntity="ItemizeItem" syncable="YES" codeGenerationType="class">
+        <attribute name="itemizedTotal" attributeType="Decimal" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="total" attributeType="Decimal" minValueString="0" maxValueString="100" defaultValueString="6" syncable="YES"/>
+        <relationship name="flipWorksheet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FlipWorksheet" inverseName="sellingCosts" inverseEntity="FlipWorksheet" syncable="YES"/>
+        <relationship name="itemizedSellingCosts" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="ItemizedSellingCostsField" inverseName="sellingCosts" inverseEntity="ItemizedSellingCostsField" syncable="YES"/>
+    </entity>
+    <entity name="Worksheet" representedClassName="Worksheet" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="afterRepairValue" attributeType="Decimal" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="amortizing" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="customLoanAmount" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="downPayment" optional="YES" attributeType="Decimal" minValueString="0" maxValueString="100" defaultValueString="20" syncable="YES"/>
+        <attribute name="interestRate" attributeType="Decimal" minValueString="0" maxValueString="100" defaultValueString="5" syncable="YES"/>
+        <attribute name="loanAmount" attributeType="Decimal" minValueString="0" defaultValueString="50000" syncable="YES"/>
+        <attribute name="purchasePrice" attributeType="Decimal" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="useFinancing" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="amortizingFinancing" maxCount="1" deletionRule="Nullify" destinationEntity="AmortizingFinancing" inverseName="worksheet" inverseEntity="AmortizingFinancing" syncable="YES"/>
+        <relationship name="property" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Property" inverseName="worksheet" inverseEntity="Property" syncable="YES"/>
+        <relationship name="purchaseCosts" maxCount="1" deletionRule="Nullify" destinationEntity="PurchaseCosts" inverseName="worksheet" inverseEntity="PurchaseCosts" syncable="YES"/>
+        <relationship name="rehabCosts" maxCount="1" deletionRule="Nullify" destinationEntity="RehabCosts" inverseName="worksheet" inverseEntity="RehabCosts" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="AbstractModel" positionX="-1503" positionY="45" width="128" height="45"/>
+        <element name="AmortizingFinancing" positionX="-1080" positionY="603" width="128" height="30"/>
+        <element name="Channel" positionX="-1503" positionY="45" width="128" height="105"/>
+        <element name="ChatUser" positionX="-1512" positionY="36" width="128" height="135"/>
+        <element name="Expenses" positionX="-578" positionY="714" width="128" height="105"/>
+        <element name="Flip" positionX="-459" positionY="18" width="128" height="45"/>
+        <element name="FlipWorksheet" positionX="-459" positionY="108" width="128" height="165"/>
+        <element name="HoldingCosts" positionX="-416" positionY="840" width="128" height="105"/>
+        <element name="Income" positionX="-1091" positionY="195" width="128" height="105"/>
+        <element name="InstantMessage" positionX="-1512" positionY="36" width="128" height="210"/>
+        <element name="ItemizedExpensesField" positionX="-1719" positionY="864" width="128" height="120"/>
+        <element name="ItemizedHoldingCostsField" positionX="-1395" positionY="864" width="128" height="90"/>
+        <element name="ItemizedIncomeField" positionX="-1242" positionY="864" width="128" height="75"/>
+        <element name="ItemizedPurchaseCostsField" positionX="-936" positionY="768" width="128" height="30"/>
+        <element name="ItemizedRehabCostsField" positionX="-1107" positionY="855" width="128" height="60"/>
+        <element name="ItemizedSellingCostsField" positionX="-1530" positionY="864" width="128" height="75"/>
+        <element name="ItemizeField" positionX="-1359" positionY="765" width="128" height="105"/>
+        <element name="ItemizeItem" positionX="-767" positionY="642" width="128" height="60"/>
+        <element name="MortgageInsurance" positionX="-765" positionY="726" width="128" height="30"/>
+        <element name="Photo" positionX="-639" positionY="-117" width="128" height="73"/>
+        <element name="Property" positionX="-783" positionY="-117" width="126" height="330"/>
+        <element name="PurchaseCosts" positionX="-929" positionY="639" width="128" height="105"/>
+        <element name="RehabCosts" positionX="-470" positionY="639" width="128" height="105"/>
+        <element name="Rental" positionX="-1091" positionY="18" width="128" height="45"/>
+        <element name="RentalWorksheet" positionX="-1091" positionY="108" width="128" height="195"/>
+        <element name="SellingCosts" positionX="-576" positionY="840" width="128" height="105"/>
+        <element name="Worksheet" positionX="-783" positionY="243" width="128" height="225"/>
+        <element name="GlossaryItem" positionX="-1512" positionY="36" width="128" height="90"/>
+    </elements>
+</model>

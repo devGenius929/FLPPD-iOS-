@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bvF-gH-SwV">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Evaluate-->
+        <scene sceneID="vJ3-1N-VYL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bvF-gH-SwV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Evaluate" image="tabIconEvaluate" id="Eai-c8-Dd7"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="huK-En-1KE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="P48-ZX-U1U" kind="relationship" relationship="rootViewController" id="mng-g8-AnF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B7F-Um-Tcr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="525" y="1213"/>
+        </scene>
+        <!--Evaluate Properties Table View Controller-->
+        <scene sceneID="niN-xL-Cuv">
+            <objects>
+                <viewController id="P48-ZX-U1U" customClass="EvaluatePropertiesTableViewController" customModule="FLPPD" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eGR-bw-EXi"/>
+                        <viewControllerLayoutGuide type="bottom" id="oPs-sK-lfA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rs5-GU-Zna">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="O5Q-5m-LEK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yQd-SQ-IS6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1180" y="1212"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tabIconEvaluate" width="21" height="21"/>
+    </resources>
+</document>
